@@ -15,7 +15,7 @@
   ```console
   $ ./build/ARM/gem5.opt configs/example/arm/starter_se.py --cpu-freq="5GHz" "tests/test-progs/hello/bin/arm/linux/hello"
   ```
-* Εναλλακτικά μπορούμε να αλλάξουμε την _deafult_ συχνότητα στο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/starter_se.py)_
+* Εναλλακτικά μπορούμε να αλλάξουμε την _deafult_ συχνότητα στο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/starter_se.py)_ από 1GHz στην επιθυμητή, π.χ. 5GHz
   ```python
-  python.code()
+  parser.add_argument("--cpu-freq", type=str, default="5GHz")
   ```
