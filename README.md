@@ -48,13 +48,15 @@ _\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture
      
 ## Ερώτημα 4
 
-### [SimpleCPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
+### Βιβλιογραφική αναφορά
+
+#### [SimpleCPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
 Το SimpleCPU είναι ένα πλήρως λειτουργικό, in-order μοντέλο κατάλληλο για περιπτώσει, όπου δε χρειάζεται ένα λεπτομερές μοντέλο. Τέτοιες περιπτώσεις είναι "warm-up periods", "client systems that are driving a host" ή δοκιμάσεις για να βεβαιωθείς πως ένα πρόγραμμα απλά τρέχει. Πρόσφατα το μοντέλο ξαναγράφτηκε, ώστε να υποστηρίζει το καινούριο σύστημα μνήμης, και πλέον χωρίζεται σε τρεις κλάσεις:
 1. BaseSimpleCPU
 2. AtomicSimpleCPU
 3. TimingSimpleCPU
   
-### [O3CPU](https://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
+#### [O3CPU](https://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
 To O3CPU είναι ένα καινούριο out-of-order μοντέλο του gem5 το οποίο βασίζεται, σε γενικές γραμμές, στον [Alpha 21264](https://en.wikipedia.org/wiki/Alpha_21264). Το συγκεκριμένα μοντέλο έχει pipeline με 5 στάδια:
 * Fetch
 * Decode
@@ -63,5 +65,16 @@ To O3CPU είναι ένα καινούριο out-of-order μοντέλο του
 * Commit
 
 
-### [MinorCPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)
-Το MinorCPU είναι ένα in-order μοντέλο επεξεργαστή με σταθερό pipeline, αλλά διαμορφώσιμα data structures και execution behaviour. Είναι φτιαγμένος για χρήση με αυστηρά in-order execution behaviour. Ένα πολύ χρήσιμο χαρακτηριστικό του συγκεκριμένου μοντέλο είναι το visualisation της θέσης ενός instruction μέσα στο pipeline.
+#### [MinorCPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)
+Το MinorCPU είναι ένα in-order μοντέλο επεξεργαστή με σταθερό pipeline, αλλά διαμορφώσιμα data structures και execution behaviour. Είναι φτιαγμένος για χρήση με αυστηρά in-order execution behaviour. Ένα πολύ χρήσιμο χαρακτηριστικό του συγκεκριμένου μοντέλου είναι το visualisation της θέσης ενός instruction μέσα στο pipeline.
+\
+### Πρόγραμμα σε C
+
+Για το συγκεκριμένο ερώτημα χρησιμοποιήθηκ ένα απλό πρόγραμμα σε C(_[fib_test.c](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test.c)_) το οποίο υπολογίζει και τυπώνει τους πρώτους 20 αριθμούς τις ακολουθίας Fibonacci.\
+Στη συνέχεια πληκτρολογώντας στην κονσόλα την εντολή
+```console
+$ arm-linux-gnueabihf-gcc --static fib_test.c -o fib_test arm
+```
+κάνουμε στατικό compile του προγράμματος και παράγουμε ενα executable αρχείο για σύστημα ARM(_[fib_test_arm](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test_arm)_).
+
+#### Ερώτημα 4.a
