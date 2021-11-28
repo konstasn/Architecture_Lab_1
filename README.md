@@ -36,10 +36,10 @@
 ## Ερώτημα 3
 
 Από το _[stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt)_ καταφράφουμε τα παρακάτω misses:\
-IL1_misses = 327\
-DL1_misses = 177\
-L2_misses = 474\
-Total_Instructions = 5027\
+**IL1_misses** = 327\
+**DL1_misses** = 177\
+**L2_misses** = 474\
+**Total_Instructions** = 5027\
 \
 Για 1 cycle cache hit/instruction execution, L1-miss_penalty = 6 cycles και L2-miss_penalty = 50 cycles, είναι:\
 \
