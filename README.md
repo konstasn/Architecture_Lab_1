@@ -1,5 +1,8 @@
 # Architecture_Lab_1
 
+**_Κώνστας Νικόλαος 9723\
+Εργασήριο Α, Ομάδα 3_**
+
 ## Ερώτημα 1
 
 Ανοίγωντας το αρχείο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/configs/starter_se.py)_ διακρίνουμε τα εξής βασικά χαρακτηριστικά του συστήματος:
@@ -129,3 +132,20 @@ $ ./build/ARM/gem5.opt -d ../fib_test_minor_mem configs/example/se.py --cpu-type
 ```console
 $ ./build/ARM/gem5.opt -d ../fib_test_timing_mem configs/example/se.py --cpu-type=TimingSimpleCPU --mem-type=DDR4_2400_8x8 --caches --cmd=../fib_test_arm
 ```
+Απότ τα αρχεία _[test_minorCpu_mem->stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_minorCpu_mem/stats.txt)_ και _[test_timingSimpleCpu_mem>stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_timingSimpleCpu_mem/stats.txt):
+
+| CPU Model | Runtime(ticks) | Runtime(seconds) | Host runtime(seconds) |
+|:---------:|:--------------:|:----------------:|:---------------------:|
+| MinorCPU - DDR3_1600_8x8 | 504411000 | 0.000504 | 2.46 |
+| MinorCPU - DDR4_2400_8x8  | 503111000 | 0.000503 | 2.44 |
+| TimingSimpleCPU - DDR3_1600_8x8  | 1117639000 | 0.001118 | 0.78 | 
+| TimingSimpleCPU - DDR4_2400_8x8 | 1117264000 | 0.001117  | 0.78 | 
+  
+Και στα δύο συστήματα παρατηρούμε μια αμελητέα πτώση του χρόνου εκτέλεσης ενώ και πάλι ο χρόνος στο host system δεν αλλάζει.
+
+### Βιβλιογραφία
+[gem5.org](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
+
+### Αξιολόγηση
+
+Η παρούσα εργασία ήταν αρκετά βοηθητική ούτως ώστε να εξοικειωθώ με το περιβάλλον εργασίας του gem5 και τις βασικές του λειτουργίες, καθώς και με το github και την σύνταξη αναφοράς στη Markdown. Επίσης το έτοιμο VM που μοιραστήκατε μαζί μας στο e-learning με βοήθησε να εξοικονομω χρόνο και να επικεντρωθώ στην ουσία της εργασίας. Θεωρώ πως η εργασία
