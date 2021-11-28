@@ -42,10 +42,14 @@ Total_Instructions = 5027\
 \
 <img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(IL1\_misses+DL1\_misses)*6+L2\_misses*50}{Total\_Instructions}" title="CPI" />\
 <img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(327+177)*6+474*50}{5027}" title="CPI" />\
-<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.316" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.316" title="CPI" />
 
 _\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt) παίρνουμε το πραγματικό CPI = 6.991048._
      
 ## Ερώτημα 4
 
-
+### SimpleCPU
+Το SimpleCPU είναι ένα πλήρως λειτουργικό, in-order μοντέλο κατάλληλο για περιπτώσει, όπου δε χρειάζεται ένα λεπτομερές μοντέλο. Τέτοιες περιπτώσεις είναι "warm-up periods", "client systems that are driving a host" ή δοκιμάσεις για να βεβαιωθείς πως ένα πρόγραμμα απλά τρέχει. Πρόσφατα το μοντέλο ξαναγράφτηκε, ώστε να υποστηρίζει το καινούριο σύστημα μνήμης, και πλέον χωρίζεται σε τρεις κλάσεις:
+1. BaseSimpleCPU
+2. AtomicSimpleCPU
+3. TimingSimpleCPU
