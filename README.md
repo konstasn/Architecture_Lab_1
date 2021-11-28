@@ -48,8 +48,16 @@ _\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture
      
 ## Ερώτημα 4
 
-### SimpleCPU
+### [SimpleCPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
 Το SimpleCPU είναι ένα πλήρως λειτουργικό, in-order μοντέλο κατάλληλο για περιπτώσει, όπου δε χρειάζεται ένα λεπτομερές μοντέλο. Τέτοιες περιπτώσεις είναι "warm-up periods", "client systems that are driving a host" ή δοκιμάσεις για να βεβαιωθείς πως ένα πρόγραμμα απλά τρέχει. Πρόσφατα το μοντέλο ξαναγράφτηκε, ώστε να υποστηρίζει το καινούριο σύστημα μνήμης, και πλέον χωρίζεται σε τρεις κλάσεις:
 1. BaseSimpleCPU
 2. AtomicSimpleCPU
 3. TimingSimpleCPU
+  
+### [O3CPU](https://www.gem5.org/documentation/general_docs/cpu_models/O3CPU)
+To O3CPU είναι ένα καινούριο out-of-order μοντέλο του gem5 το οποίο βασίζεται, σε γενικές γραμμές, στον [Alpha 21264](https://en.wikipedia.org/wiki/Alpha_21264). Το συγκεκριμένα μοντέλο έχει pipeline με 5 στάδια:
+* Fetch
+* Decode
+* Rename
+* Issue/Execute/Writeback
+* Commit
