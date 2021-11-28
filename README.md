@@ -19,3 +19,8 @@
   ```python
   parser.add_argument("--cpu-freq", type=str, default="5GHz")
   ```
+## Ερώτημα 2
+
+sim_seconds: # Number of seconds simulated
+Δηλάδη καταγράφει για πόσα δευτερόλεπτα έτρεξε το πρόγραμμα στο σύστημα που προσομοιώνουμε.
+
