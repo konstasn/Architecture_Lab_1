@@ -21,6 +21,29 @@
   ```
 ## Ερώτημα 2
 
-sim_seconds: # Number of seconds simulated
+sim_seconds: _"# Number of seconds simulated"_\
 Δηλάδη καταγράφει για πόσα δευτερόλεπτα έτρεξε το πρόγραμμα στο σύστημα που προσομοιώνουμε.
+
+sim_insts: _"# Number of instructions simulated"_\
+Μετρά τα instructions που εκτελεί το προσομοιωμένο σύστημα.
+
+host_inst_rate: _"# Simulator instruction rate (inst/s)"_\
+Το πλήθος των εντολών που εκτελεί το προσομοιωμένο σύστημα ανά δευτερόλεπτο(πραγματικού χρόνου).
+
+## Ερώτημα 3
+
+Από το _[stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt)_ καταφράφουμε τα παρακάτω misses:\
+IL1_misses = 327\
+DL1_misses = 180\
+L2_misses = 474\
+Total_Instructions = 5027\
+\
+Για 1 cycle cache hit/instruction execution, L1-miss_penalty = 6 cycles και L2-miss_penalty = 50 cycles, είναι:\
+\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(IL1\_misses+DL1\_misses)*6+L2\_misses*50}{Total\_Instructions}" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(327+180)*6+474*50}{5027}" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.3196" title="CPI" />\
+     
+## Ερώτημα 4
+
 
