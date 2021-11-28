@@ -61,3 +61,7 @@ To O3CPU είναι ένα καινούριο out-of-order μοντέλο του
 * Rename
 * Issue/Execute/Writeback
 * Commit
+
+
+### [MinorCPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)
+Το MinorCPU είναι ένα in-order μοντέλο επεξεργαστή με σταθερό pipeline, αλλά διαμορφώσιμα data structures και execution behaviour. Είναι φτιαγμένος για χρήση με αυστηρά in-order execution behaviour. Ένα πολύ χρήσιμο χαρακτηριστικό του συγκεκριμένου μοντέλο είναι το visualisation της θέσης ενός instruction μέσα στο pipeline.
