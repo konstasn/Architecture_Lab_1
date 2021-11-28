@@ -42,8 +42,7 @@ Total_Instructions = 5027\
 \
 <img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(IL1\_misses+DL1\_misses)*6+L2\_misses*50}{Total\_Instructions}" title="CPI" />\
 <img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(327+180)*6+474*50}{5027}" title="CPI" />\
-<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.3196" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.3196" title="CPI" />
      
 ## Ερώτημα 4
-
 
