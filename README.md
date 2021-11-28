@@ -2,7 +2,7 @@
 
 ## Ερώτημα 1
 
-Ανοίγωντας το αρχείο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/starter_se.py)_ διακρίνουμε τα εξής βασικά χαρακτηριστικά του συστήματος:
+Ανοίγωντας το αρχείο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/configs/starter_se.py)_ διακρίνουμε τα εξής βασικά χαρακτηριστικά του συστήματος:
 * Αρχικά πληκτρολογώντας `--cpu="minor"` κατά την αρχικοποίηση της προσομοίωσης δημιουργείται ένας επεξεργαστής βασισμένος στο μοντέλο MinorCPU με τις ακόλουθες caches: {L1I, L1D, WalkCache, L2}
 * Το μέγεθος του cache line είναι 64Bytes
 * To σύστημα έχει clock domain 1GHz και voltage domain 3.3V
@@ -15,7 +15,7 @@
   ```console
   $ ./build/ARM/gem5.opt configs/example/arm/starter_se.py --cpu-freq="5GHz" "tests/test-progs/hello/bin/arm/linux/hello"
   ```
-* Εναλλακτικά μπορούμε να αλλάξουμε την _deafult_ συχνότητα στο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/starter_se.py)_ από 1GHz στην επιθυμητή, π.χ. 5GHz
+* Εναλλακτικά μπορούμε να αλλάξουμε την _deafult_ συχνότητα στο _[starter\_se.py](https://github.com/konstasn/Architecture_Lab_1/blob/main/configs/starter_se.py)_ από 1GHz στην επιθυμητή, π.χ. 5GHz
   ```python
   parser.add_argument("--cpu-freq", type=str, default="5GHz")
   ```
@@ -34,17 +34,18 @@ host_inst_rate: _"# Simulator instruction rate (inst/s)"_\
 
 Από το _[stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt)_ καταφράφουμε τα παρακάτω misses:\
 IL1_misses = 327\
-DL1_misses = 180\
+DL1_misses = 177\
 L2_misses = 474\
 Total_Instructions = 5027\
 \
 Για 1 cycle cache hit/instruction execution, L1-miss_penalty = 6 cycles και L2-miss_penalty = 50 cycles, είναι:\
 \
 <img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(IL1\_misses+DL1\_misses)*6+L2\_misses*50}{Total\_Instructions}" title="CPI" />\
-<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(327+180)*6+474*50}{5027}" title="CPI" />\
-<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.3196" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=1+\frac{(327+177)*6+474*50}{5027}" title="CPI" />\
+<img src="https://latex.codecogs.com/svg.latex?\space\;CPI=6.316" title="CPI" />\
 
-_\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt) παίρνουμε το πραγματικό CPI = 22.900338._
+_\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/hello_results/stats.txt) παίρνουμε το πραγματικό CPI = 6.991048._
      
 ## Ερώτημα 4
+
 
