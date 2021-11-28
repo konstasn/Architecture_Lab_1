@@ -67,7 +67,7 @@ To O3CPU είναι ένα καινούριο out-of-order μοντέλο του
 
 #### [MinorCPU](https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu)
 Το MinorCPU είναι ένα in-order μοντέλο επεξεργαστή με σταθερό pipeline, αλλά διαμορφώσιμα data structures και execution behaviour. Είναι φτιαγμένος για χρήση με αυστηρά in-order execution behaviour. Ένα πολύ χρήσιμο χαρακτηριστικό του συγκεκριμένου μοντέλου είναι το visualisation της θέσης ενός instruction μέσα στο pipeline.
-\
+
 ### Πρόγραμμα σε C
 
 Για το συγκεκριμένο ερώτημα χρησιμοποιήθηκ ένα απλό πρόγραμμα σε C(_[fib_test.c](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test.c)_) το οποίο υπολογίζει και τυπώνει τους πρώτους 20 αριθμούς τις ακολουθίας Fibonacci.\
@@ -78,3 +78,17 @@ $ arm-linux-gnueabihf-gcc --static fib_test.c -o fib_test arm
 κάνουμε στατικό compile του προγράμματος και παράγουμε ενα executable αρχείο για σύστημα ARM(_[fib_test_arm](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test_arm)_).
 
 #### Ερώτημα 4.a
+
+Αρχικά τρέχουμε το test/πρόγραμμα για **MinorCPU** με την εντολή:
+```console
+ $ ./build/ARM/gem5.opt -d ../fib_test_minor configs/example/se.py --cpu-type=MinorCPU  --caches --cmd=../fib_test_arm
+```
+και στη συνέχεια για **TimingSipleCPU** με την εντολή:
+```console
+ $ ./build/ARM/gem5.opt -d ../fib_test_timing configs/example/se.py --cpu-type=TimingSimpleCPU  --caches --cmd=../fib_test_arm
+```
+Από τα αρχεία _[test_minorCpu->stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_minorCpu/stats.txt)_ και _[test_timingSimpleCpu->stats.txt](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_timingSimpleCpu/stats.txt)_ παίρνουμε τα παρακάτω αποτελέσματα:
+| CPU Model | Runtime(ticks) | Runtime(seconds) | Host runtime(seconds) |
+|:---------:|:--------------:|:----------------:|:---------------------:|
+| MinorCPU | 504411000 | 0.000504 | 2.46 |
+| TimingSimpleCPU | 1117639000 | 0.001118 | 0.78 |
