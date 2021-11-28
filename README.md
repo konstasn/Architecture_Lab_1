@@ -54,7 +54,7 @@ _\*Από το αρχείο [stats.txt](https://github.com/konstasn/Architecture
 ### Βιβλιογραφική αναφορά
 
 #### [SimpleCPU](https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU)
-Το SimpleCPU είναι ένα πλήρως λειτουργικό, in-order μοντέλο κατάλληλο για περιπτώσεις, όπου δε χρειάζεται ένα λεπτομερές μοντέλο. Τέτοιες περιπτώσεις είναι "warm-up periods", "client systems that are driving a host" ή δοκιμάσεις για να βεβαιωθείς πως ένα πρόγραμμα απλά τρέχει. Πρόσφατα το μοντέλο ξαναγράφτηκε, ώστε να υποστηρίζει το καινούριο σύστημα μνήμης, και πλέον χωρίζεται σε τρεις κλάσεις:
+Το SimpleCPU είναι ένα πλήρως λειτουργικό, in-order μοντέλο κατάλληλο για περιπτώσεις, όπου δε χρειάζεται ένα λεπτομερές μοντέλο. Τέτοιες περιπτώσεις είναι "warm-up periods", "client systems that are driving a host" ή μια απλή δοκιμή της λειτουργικότητας ενός προγράμματος. Πρόσφατα το μοντέλο ξαναγράφτηκε, ώστε να υποστηρίζει το καινούριο σύστημα μνήμης, και πλέον χωρίζεται σε τρεις κλάσεις:
 1. BaseSimpleCPU
 2. AtomicSimpleCPU
 3. TimingSimpleCPU
@@ -96,17 +96,17 @@ $ arm-linux-gnueabihf-gcc --static fib_test.c -o fib_test arm
 | MinorCPU | 504411000 | 0.000504 | 2.46 |
 | TimingSimpleCPU | 1117639000 | 0.001118 | 0.78 |  
   
-Παρατηρούμε πως στο test μας με το συγκεκριμένο configuration ο MinorCPU είναι περίπου 2 φορές γρηγορότερος ενώ ο TimingSimpleCPU τρέχει περίπου 3 φορές γρηγορότερα στο host system.
+Παρατηρούμε πως στο test μας με το συγκεκριμένο configuration ο **MinorCPU** είναι περίπου 2 φορές γρηγορότερος ενώ ο **TimingSimpleCPU** τρέχει περίπου 3 φορές γρηγορότερα στο host system.
 
 #### Ερώτημα 4.b.i
 
-Στο συγεκριμένο ερώτημα μεταβάλουμε τη συχνότητα του CPU για να δούμε πως αυτή η μεταβολή θα επηρεάσει το χρόνο εκτέλεσης των δύο μοντέλων CPU.
-Και στις δύο περιπτώσεις θέτουμε συχνότητα του CPU στα 5GHz( η default τιμή ήταν 2GHz όπως βλέπουμε στα αρχεία _[test_minorCpu->config.ini](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_minorCpu/config.ini)_ και _[test_timingSimpleCpu->config.ini](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_timingSimpleCpu/config.ini)_).
-Για το MinorCPU εκτελούμε την εντολή:
+Στο συγεκριμένο υποερώτημα μεταβάλουμε τη συχνότητα του CPU για να δούμε πως αυτή η μεταβολή θα επηρεάσει το χρόνο εκτέλεσης των δύο μοντέλων CPU.
+Και στις δύο περιπτώσεις θέτουμε τη συχνότητα του CPU στα 5GHz( η default τιμή ήταν 2GHz όπως βλέπουμε στα αρχεία _[test_minorCpu->config.ini](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_minorCpu/config.ini)_ και _[test_timingSimpleCpu->config.ini](https://github.com/konstasn/Architecture_Lab_1/blob/main/test_timingSimpleCpu/config.ini)_).
+Για το **MinorCPU** εκτελούμε την εντολή:
 ```console
 $ ./build/ARM/gem5.opt -d ../fib_test_minor_oc configs/example/se.py --cpu-type=MinorCPU --cpu-clock="5GHz" --caches --cmd=../fib_test_arm
 ```
-, ενώ για τον TimingSimpleCPU εκτελούμε την εντολή:
+, ενώ για τον **TimingSimpleCPU** εκτελούμε την εντολή:
 ```console
 $ ./build/ARM/gem5.opt -d ../fib_test_timing_oc configs/example/se.py --cpu-type=TimingSimpleCPU --cpu-clock="5GHz" --caches --cmd=../fib_test_arm
 ```
@@ -119,11 +119,11 @@ $ ./build/ARM/gem5.opt -d ../fib_test_timing_oc configs/example/se.py --cpu-type
 | TimingSimpleCPU @ 2GHz | 1117639000 | 0.001118 | 0.78 | 
 | TimingSimpleCPU @ 5GHz | 464119000 | 0.000464  | 0.79 | 
   
-Όπως ήταν αναμενόμενο αυξάνοντας τη συχνότητα λειτουργίας του επεξεργαστή κατά 2.5 φορές είδαμε αντίστοιχη πτώση και στο χρόνο εκτέλεσης, ενώ ο χρόνος που χρειάστηκε το host system για να τρέξει της προσομοίωσης έμεινε πρακτικά σταθερός. Συγκεριμένα ο MinorCPU έγινε 2.27 φορές γρηγορότερος ενώ ο TimingSimpleCPU επιταχύνθηκε 2.41 φορές. Παρατηρούμε πως ο TimingSimpleCPU επωφελήθηκε λίγο παραπάνω από την αύξηση της συχνότητας αλλά συνέχισε να είναι περίπου 2 φορές αργότερος από τον MinorCPU.
+Όπως ήταν αναμενόμενο αυξάνοντας τη συχνότητα λειτουργίας του επεξεργαστή κατά 2.5 φορές είδαμε αντίστοιχη πτώση και στο χρόνο εκτέλεσης, ενώ ο χρόνος που χρειάστηκε το host system για να τρέξει της προσομοίωσης έμεινε πρακτικά σταθερός. Συγκεριμένα ο **MinorCPU** έγινε 2.27 φορές γρηγορότερος ενώ ο **TimingSimpleCPU** επιταχύνθηκε 2.41 φορές. Παρατηρούμε πως ο **TimingSimpleCPU** επωφελήθηκε λίγο παραπάνω από την αύξηση της συχνότητας αλλά συνέχισε να είναι περίπου 2 φορές αργότερος από τον **MinorCPU**.
 
 #### Ερώτημα 4.b.ii
 
-Τώρα θα αλλάξουμε τη μνήμη που χρησιμοποιεί το σύστημα. H default μνήμη είναι _DDR3_1600_8x8_ ενώ εμείς θα χρησιμοποιήσουμε _DDR4_2400_8x8_.
+Τώρα θα αλλάξουμε τη μνήμη που χρησιμοποιεί το σύστημα. H default μνήμη είναι **DDR3_1600_8x** την οποία θα αντικαταστήσουμε με **DDR4_2400_8x8**.
 Για το MinorCPU εκτελούμε:
 ```console
 $ ./build/ARM/gem5.opt -d ../fib_test_minor_mem configs/example/se.py --cpu-type=MinorCPU --mem-type=DDR4_2400_8x8 --caches --cmd=../fib_test_arm
