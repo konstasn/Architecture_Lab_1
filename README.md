@@ -73,7 +73,7 @@ To O3CPU είναι ένα καινούριο out-of-order μοντέλο του
 
 ### Πρόγραμμα σε C
 
-Για το συγκεκριμένο ερώτημα χρησιμοποιήθηκ ένα απλό πρόγραμμα σε C(_[fib_test.c](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test.c)_) το οποίο υπολογίζει και τυπώνει τους πρώτους 20 αριθμούς τις ακολουθίας Fibonacci.\
+Για το συγκεκριμένο ερώτημα χρησιμοποιήθηκ ένα απλό πρόγραμμα σε C(_[fib_test.c](https://github.com/konstasn/Architecture_Lab_1/blob/main/my_test_program/fib_test.c)_) το οποίο υπολογίζει και τυπώνει τους πρώτους 20 αριθμούς της ακολουθίας Fibonacci.\
 Στη συνέχεια πληκτρολογώντας στην κονσόλα την εντολή
 ```console
 $ arm-linux-gnueabihf-gcc --static fib_test.c -o fib_test arm
